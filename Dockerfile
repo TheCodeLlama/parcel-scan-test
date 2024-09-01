@@ -4,11 +4,23 @@ FROM openjdk:17-jdk-alpine
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the JAR file of your Spring Boot application to the container
-COPY target/your-application.jar /app/your-application.jar
+# Copy the Maven wrapper scripts and the POM file
+COPY mvnw pom.xml ./
+
+# Copy the Maven wrapper and settings
+COPY .mvn .mvn
+
+# Download the Maven dependencies
+RUN ./mvnw dependency:go-offline -B
+
+# Copy the source code into the container
+COPY src ./src
+
+# Package the application
+RUN ./mvnw package -DskipTests
 
 # Expose port 8080 (default port for Spring Boot)
 EXPOSE 8080
 
 # Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "/app/your-application.jar"]
+ENTRYPOINT ["java", "-jar", "./target/parcel-scanner-v1.jar"]
