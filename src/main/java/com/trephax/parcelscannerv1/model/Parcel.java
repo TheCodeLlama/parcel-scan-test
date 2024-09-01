@@ -74,7 +74,7 @@ public class Parcel {
     private String name;
     private String description;
     private String owner;
-    private UUID group;
+    private String group;
     private int area;
     private boolean seeAvatars;
     private int primCapacity;
