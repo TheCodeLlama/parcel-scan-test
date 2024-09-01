@@ -1,6 +1,7 @@
 package com.trephax.parcelscannerv1.controller;
 
 import com.trephax.parcelscannerv1.model.Parcel;
+import com.trephax.parcelscannerv1.model.dto.ParcelDTO;
 import com.trephax.parcelscannerv1.service.ParcelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -27,8 +28,8 @@ public class ParcelController {
     }
 
     @PostMapping
-    public Parcel createParcel(@RequestBody Parcel parcel) {
-        return parcelService.createParcel(parcel);
+    public Parcel createParcel(@RequestBody ParcelDTO parcelDTO) {
+        return parcelService.createParcel(parcelDTO);
     }
 
     @DeleteMapping("/{id}")
