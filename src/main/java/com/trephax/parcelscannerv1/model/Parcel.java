@@ -34,7 +34,7 @@ public class Parcel {
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "region_id")
+    @JoinColumn(name = "region_id", referencedColumnName = "region_id")
     @Exclude
     private Region region;
 
