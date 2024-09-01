@@ -1,5 +1,7 @@
 package com.trephax.parcelscannerv1.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,6 +41,7 @@ public class Region {
     private String name;
 
     @OneToMany(mappedBy = "region", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     @ToString.Exclude
     private List<Parcel> parcels;
 

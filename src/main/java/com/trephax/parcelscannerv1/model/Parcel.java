@@ -1,5 +1,7 @@
 package com.trephax.parcelscannerv1.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -35,6 +37,7 @@ public class Parcel {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id", referencedColumnName = "id")
+    @JsonBackReference
     @Exclude
     private Region region;
 
