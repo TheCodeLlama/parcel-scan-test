@@ -74,6 +74,7 @@ public class Parcel {
     private String name;
     private String description;
     private String owner;
+    @Column(name = "parcel_group")
     private String group;
     private int area;
     private boolean seeAvatars;

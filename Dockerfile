@@ -23,4 +23,4 @@ RUN ./mvnw package -DskipTests
 EXPOSE 8080
 
 # Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "./target/parcel-scanner-v1.jar"]
+ENTRYPOINT ["java", "-jar", "./target/parcel-scanner-v1-0.0.1-SNAPSHOT.jar"]
