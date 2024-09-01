@@ -79,7 +79,7 @@ public class ParcelService {
             .name(parcelDTO.getName())
             .description(parcelDTO.getDescription())
             .owner(parcelDTO.getOwner())
-            .group(UUID.fromString(parcelDTO.getGroup()))
+            .group(parcelDTO.getGroup())
             .area(parcelDTO.getArea())
             .seeAvatars(parcelDTO.isSeeAvatars())
             .primCapacity(parcelDTO.getPrimCapacity())
